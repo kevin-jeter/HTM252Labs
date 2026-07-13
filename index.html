@@ -170,15 +170,14 @@ body.dark .banner {
       <select id="labFilter" onchange="filterLabs()">
         <option value="">----Select----</option>
         <option value="User Guide">User Guide</option>
-        <option value="Lab 1: Orientation and Navigation">Lab 1: Orientation and Navigation</option>
-        <option value="Lab 2: Work Orders and Documentation">Lab 2: Work Orders and Documentation</option>
-        <option value="Lab 3: Time Entry">Lab 3: Time Entry</option>
-        <option value="Optional Lab: Customizing Columns in List View">Optional Lab: Customizing Columns in List View</option>
-        <option value="Lab 4: Submitting Work Orders Through yourHTM">Lab 4: Submitting Work Orders Through yourHTM</option>
-        <option value="Lab 5: Preventive Maintenance">Lab 5: Preventive Maintenance</option>
-        <option value="Lab 6: Asset Management">Lab 6: Asset Management</option>
-        <option value="Technician Capstone Lab">Technician Capstone Lab</option>
-      </select>
+        <option value="Session 1: Placeholder">Session 1: Placeholder</option>
+        <option value="Session 2: Project Management with Microsoft Excel">Session 2: Project Management with Microsoft Excel</option>
+        <option value="Session 3A: OneNote Foundations for Project Organization">Session 3A: OneNote Foundations for Project Organization</option>
+        <option value="Session 3B: OneNote Collaboration and Microsoft 365 Integration">Session 3B: OneNote Collaboration and Microsoft 365 Integration</option>
+        <option value="Session 4: Project Management in Microsoft Teams Lab">Session 4: Project Management in Microsoft Teams Lab</option>
+        <option value="Session 5: Communication Skills for Project Managers">Session 5: Communication Skills for Project Managers</option>
+        <option value="Session 6: Project Management Closeout Lab">Session 6: Project Management Closeout Lab</option>
+        </select>
     </div>
 
     <label class="theme-switch">
@@ -189,9 +188,6 @@ body.dark .banner {
   </section>
 
   <main class="container">
-    <div class="banner">
-    Screenshots in these labs may not reflect exactly what you are seeing in your test environment, but the concepts and steps learned in the lectures can still be applied.
-  </div>
     <section class="lab-section active" data-lab="User Guide">
       <h2>User Guide</h2>
       <p>Welcome to the HTM252: PM Toolkit Labs! This guide is designed to help you navigate through the various labs included in this course. </p>
@@ -200,6 +196,105 @@ body.dark .banner {
       <p>If you have questions, reach out to your instructor or refer to the course materials. Happy learning!</p>
     </section>
 
+    <section class="lab-section" data-lab="Session 1: Placeholder">
+      <h2>Session 1: Placeholder</h2>
+    </section>
+
+    <section class="lab-section" data-lab="Session 2: Project Management with Microsoft Excel">
+      <h2>Session 2: Project Management with Microsoft Excel</h2>
+      <h4>Scenario</h4>
+      <p>You are supporting a technology implementation project. In this first section, you will use Excel to connect information within a workbook and implement features that help to visualize project information.</p>
+
+      <h3>Part 1: Review the Project Information and Assign Tasks</h3>
+      <ol>
+        <li>
+          Open the Excel file <b>Technology Implementation Project</b>. The workbook contains the following worksheets: 
+          <ul>
+            <li>Dashboard</li>
+            <li>Tasks</li>
+            <li>Timeline</li>
+            <li>Resources</li>
+            <li>Team Members</li>
+            <li>Budget</li>
+          </ul>
+        </li>
+        <li>On the <b>Tasks</b> worksheet you’ll see project activities that need ownership assignments. You’ll assign these using a drop-down list of project roles. To do this, start by selecting the blank cells under the Assigned To heading.</li>
+        <li>With those cells selected, navigate to the <b>Data</b> tab on the Excel toolbar and click on Data Validation in the <b>Data Tools</b> section.</li>
+        <li>In the Data Validation dialog, select List from the Allow drop-down. </li>
+        <li>Click in the Source field. Keeping the Data Validation dialog open, navigate to the <b>Roles</b> worksheet of the workbook and select the cells under the Role header. The Source field populates with the cells you’ve selected.</li>
+        <li>Click <b>OK</b>.</li>
+        <li>On the Tasks worksheet, the cells under Assigned To now have a drop-down list of roles. For each task, select a role to assign the task to.</li>
+      </ol>
+
+      <h3>Part 2: Complete the RACI Matrix</h3>
+      <p>To add more nuance to the task assignments, let's create a RACI Matrix.</p>
+      <ol>
+        <li>
+          For the columns under the roles in the project tasks table, repeat the steps above to create a new drop-down list. For this list, the source data will be the first column of the RACI definitions table (also on the Tasks worksheet). 
+        </li>
+        <li>
+          For each task, assign a RACI rating for each project team member using the guidance below.
+          <b>RACI Definitions:</b>
+          <ul>
+            <li><b>R = Responsible</b> (Performs the work)</li>
+            <li><b>A = Accountable</b> (Ultimately owns the outcome)</li>
+            <li><b>C = Consulted</b> (Provides input before decisions)</li>
+            <li><b>I = Informed</b> (Kept updated on progress)</li>
+          </ul>
+        </li>
+        <li>Set a status for each task using the same method of creating a drop-down list in the Status column. For the source data of this, use the Task Status table on the <b>Tasks</b> worksheet.</li>
+        <li>Apply conditional formatting to automatically change the cell color of the task’s status. To do this, select the cells in the Status column and navigate to the <b>Home</b> tab in the Excel toolbar. In the Styles section, click on Conditional Formatting and select New Rule from the drop-down menu.</li>
+        <li>In the New Formatting Rule dialog, select <b>Format only cells that contain</b>. In the Edit the Rule Description section, select Specific Text from the first drop-down menu and type Completed in the text field. Click the <b>Format</b> button. </li>
+        <li>In the Format Cells dialog, click on Color and select green as the cell fill. Click OK on both the Format Cells dialog and the New Formatting Rule dialog. </li>
+        <li>Repeat the above steps so the status In Progress turns the cell fill yellow and the Not Started status tuns the cell fill red.</li>
+      </ol>
+
+      <h3>Part 3: Validation Questions</h3>
+      <p>Answer the following:</p>
+      <ol>
+        <li>Which role was most frequently assigned as <b>Accountable</b>?</li>
+        <li>Which project task required the greatest number of <b>Consulted</b> participants?</li>
+        <li>Why is it important to have only one <b>Accountable</b> role per task?</li>
+        <li>What project risks could occur if responsibilities are not clearly defined?</li>
+      </ol>
+
+      <h3>Part 4: Date Validation Questions</h3>
+      <p>Please complete the following additional activities: </p>
+      <ol>
+        <li>In the Depends On column, create a drop-down list from the project tasks and select a dependency for each task that depends on another task. Add the Dependency Type in the next column.</li>
+        <li>Add a start and end date for each task.</li>
+        <li>Use the DATEDIF function to automatically show you the length of each task. the In the first line of the table, under Length, enter the following: =DATEDIF(K2,L2,"d") 
+          <ol type="a">
+            <li>
+              (The equal sign at the beginning tells Excel you’re entering a formula. DATEDIF is a formula that shows the time difference between two dates. Inside the parentheses, the first two values are the cells you want the formula to calculate from, and “d” indicates you want the number in days.)
+            </li>
+          </ol>
+        </li>
+        <li>Click on the cell you entered the formula in and hover over the lower right corner until a plus sign appears, then click and drag down the column to repeat the formula for the rest of the table. </li>
+        <li>In the % Complete column, enter a value for each task, typing the % sign after the number. On the Home tab in the Excel toolbar, click on Conditional Formatting, then hover over Data Bars. Select either Solid Fill or Gradient Fill and a color.</li>
+      </ol>
+    </section>
+
+    <section class="lab-section" data-lab="Session 3A: OneNote Foundations for Project Organization">
+      <h2>Session 3A: OneNote Foundations for Project Organization</h2>
+    </section>
+
+    <section class="lab-section" data-lab="Session 3B: OneNote Collaboration and Microsoft 365 Integration">
+      <h2>Session 3B: OneNote Collaboration and Microsoft 365 Integration</h2>
+    </section>
+
+    <section class="lab-section" data-lab="Session 4: Project Management in Microsoft Teams Lab">
+      <h2>Session 4: Project Management in Microsoft Teams Lab</h2>
+    </section>
+
+    <section class="lab-section" data-lab="Session 5: Communication Skills for Project Managers">
+      <h2>Session 5: Communication Skills for Project Managers</h2>
+    </section>
+
+    <section class="lab-section" data-lab="Session 6: Project Management Closeout Lab">
+      <h2>Session 6: Project Management Closeout Lab</h2>
+    </section>
+    
   </main>
 
   <footer class="footer">
