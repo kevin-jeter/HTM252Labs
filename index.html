@@ -205,7 +205,7 @@ body.dark .banner {
       <h4>Scenario</h4>
       <p>You are supporting a technology implementation project. In this first section, you will use Excel to connect information within a workbook and implement features that help to visualize project information.</p>
 
-      <h3>Part 1: Review the Project Information and Assign Tasks</h3>
+      <h3>Part 1: Review the Project Information and Assign Tasks (10 Minutes)</h3>
       <ol>
         <li>
           Open the Excel file <b>Technology Implementation Project</b>. The workbook contains the following worksheets: 
@@ -226,7 +226,7 @@ body.dark .banner {
         <li>On the Tasks worksheet, the cells under Assigned To now have a drop-down list of roles. For each task, select a role to assign the task to.</li>
       </ol>
 
-      <h3>Part 2: Complete the RACI Matrix</h3>
+      <h3>Part 2: Complete the RACI Matrix (10 Minutes)</h3>
       <p>To add more nuance to the task assignments, let's create a RACI Matrix.</p>
       <ol>
         <li>
@@ -243,22 +243,30 @@ body.dark .banner {
           </ul>
         </li>
         <li>Set a status for each task using the same method of creating a drop-down list in the Status column. For the source data of this, use the Task Status table on the <b>Tasks</b> worksheet.</li>
-        <li>Apply conditional formatting to automatically change the cell color of the task’s status. To do this, select the cells in the Status column and navigate to the <b>Home</b> tab in the Excel toolbar. In the Styles section, click on Conditional Formatting and select New Rule from the drop-down menu.</li>
+        <li>Apply conditional formatting to automatically change the cell color of the task’s status. To do this, select the cells in the Status column and navigate to the <b>Home</b> tab in the Excel toolbar. In the <b>Styles</b> section, click on <b>Conditional Formatting</b> and select <b>New Rule</b> from the drop-down menu.</li>
         <li>In the New Formatting Rule dialog, select <b>Format only cells that contain</b>. In the Edit the Rule Description section, select Specific Text from the first drop-down menu and type Completed in the text field. Click the <b>Format</b> button. </li>
-        <li>In the Format Cells dialog, click on Color and select green as the cell fill. Click OK on both the Format Cells dialog and the New Formatting Rule dialog. </li>
+        <li>In the Format Cells dialog, click on <b>Color</b> and select green as the cell fill. Click <b>OK</b> on both the Format Cells dialog and the New Formatting Rule dialog. </li>
         <li>Repeat the above steps so the status In Progress turns the cell fill yellow and the Not Started status tuns the cell fill red.</li>
       </ol>
 
-      <h3>Part 3: Validation Questions</h3>
+      <h3>Part 3: Validation Questions (5 Minutes)</h3>
       <p>Answer the following:</p>
       <ol>
-        <li>Which role was most frequently assigned as <b>Accountable</b>?</li>
-        <li>Which project task required the greatest number of <b>Consulted</b> participants?</li>
-        <li>Why is it important to have only one <b>Accountable</b> role per task?</li>
-        <li>What project risks could occur if responsibilities are not clearly defined?</li>
+        <li>Which role was most frequently assigned as <b>Accountable</b>?
+          <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
+        </li>
+        <li>Which project task required the greatest number of <b>Consulted</b> participants?
+        <input type="text" name="q2" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
+        </li>
+        <li>Why is it important to have only one <b>Accountable</b> role per task?
+        <input type="text" name="q3" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
+        </li>
+        <li>What project risks could occur if responsibilities are not clearly defined?
+        <input type="text" name="q4" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
+        </li>
       </ol>
 
-      <h3>Part 4: Date Validation Questions</h3>
+      <h3>Part 4: Date Validation Questions (10 Minutes)</h3>
       <p>Please complete the following additional activities: </p>
       <ol>
         <li>In the Depends On column, create a drop-down list from the project tasks and select a dependency for each task that depends on another task. Add the Dependency Type in the next column.</li>
@@ -277,6 +285,150 @@ body.dark .banner {
 
     <section class="lab-section" data-lab="Session 3A: OneNote Foundations for Project Organization">
       <h2>Session 3A: OneNote Foundations for Project Organization</h2>
+      <h4>Scenario</h4>
+      <p>You have recently joined a project team responsible for implementing a new enterprise software solution for a healthcare organization. Your project manager has asked you to create and organize a OneNote notebook that will serve as the project's central repository for documentation, requirements, meeting notes, and project planning information.</p> 
+      <p>You will create the project notebook, organize project content, and implement information management techniques that support project execution.</p>
+
+      <h3>Part 1: Create and organize a OneNote Notebook (10 Minutes)</h3>
+
+      <h4>Create a New Notebook</h4>
+      <ol>
+        <li>Open Microsoft OneNote.</li>
+        <li>Select <b>File > New</b>.</li>
+        <li>Create a new notebook name: <b>Enterprise Software Implementation Project</b>.</li>
+        <li>Save the notebook to OneDrive.</li>
+      </ol>
+
+      <h4>Create Sections</h4>
+      <p>Create the following notebook sections.</p>
+      <ul>
+        <li>Project Overview</li>
+        <li>Requirements</li>
+        <li>Meetings</li>
+        <li>Risks & Issues</li>
+        <li>Training</li>
+      </ul>
+
+      <h4>Create Pages</h4>
+      <p>Create the following pages.</p>
+      <table class="styled-table">
+          <thead>
+            <tr>
+              <th style="width: 18%;">Section</th>
+              <th>Pages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2"><strong>Project Overview</strong></td>
+              <td>Project Charter</td>
+            </tr>
+            <tr>
+              <td>Stakeholder List</td>
+            </tr>
+            <tr>
+              <td rowspan="2"><strong>Requirements</strong></td>
+              <td>Functional Requirements</td>
+            </tr>
+            <tr>
+              <td>Technical Requirements</td>
+            </tr>
+            <tr>
+              <td rowspan="1"><strong>Meetings</strong></td>
+              <td>Kickoff Meeting Notes</td>
+            </tr>
+            <tr>
+              <td rowspan="1"><strong>Risks & Issues</strong></td>
+              <td>Risk Register</td>
+            </tr>
+            <tr>
+              <td rowspan="1"><strong>Training</strong></td>
+              <td>Training Plan</td>
+            </tr>
+          </tbody>
+      </table>
+
+        <h3>Part 2: Use and Adapt Templates (5–7 Minutes)</h3>
+        <h4>Apply a Template</h4>
+        <ol>
+          <li>Navigate to the <b>Kickoff Meeting Notes</b> page.</li> 
+          <li>Select <b>Insert > Page Templates</b>.</li>
+          <li>Choose a meeting notes template.</li>
+        </ol>
+
+        <h4>Customize the Template</h4>
+        <p>Modify the template to include:</p>
+        <ul>
+          <li>Meeting Date</li>
+          <li>Attendees</li>
+          <li>Objectives</li>
+          <li>Action Items</li>
+          <li>Decisions Made</li>
+        </ul>
+
+        <h4>Save Your Changes</h4>
+        <p>Add sample project information to each section of the template.</p>
+
+        <h3>Part 3: Apply Tags and Organize Information (5–7 Minutes)</h3>
+        <h4>Add Sample Action Items</h4>
+        <p>Under the Kickoff Meeting Notes page, add:</p>
+        <ul>
+          <li>Gather stakeholder requirements</li>
+          <li>Complete system design</li>
+          <li>Schedule training sessions</li>
+          <li>Review project risks</li>
+        </ul>
+
+        <h4>Apply Tags</h4>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th style="width: 18%;">Task</th>
+              <th>Suggested Tag</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gather stakeholder requirements</td>
+              <td>To Do</td>
+            </tr>
+            <tr>
+              <td>Complete system design</td>
+              <td>Important</td>
+            </tr>
+            <tr>
+              <td>Schedule training sessions</td>
+              <td>To Do</td>
+            </tr>
+            <tr>
+              <td>Review project risks</td>
+              <td>Question</td>
+            </tr>
+            </tbody>
+      </table>
+
+      <h4>Search by Tag</h4>
+      <ol>
+        <li>Select <b>Home > Find Tags</b>.</li>
+        <li>Review the tagged items generated by OneNote.</li>
+      </ol>
+
+      <h3>Reflection Questions</h3>
+      <ol>
+        <li>How do notebooks, sections, and pages improve project organization? 
+          <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
+        </li>
+        <li>What benefits do templates provide for project documentation? 
+        <input type="text" name="q2" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
+        </li>
+        <li>How can tags improve project tracking and follow-up?
+        <input type="text" name="q3" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
+        </li>
+        <li>Which notebook section would be most valuable throughout the project lifecycle?
+        <input type="text" name="q4" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
+        </li>
+      </ol>
+      
     </section>
 
     <section class="lab-section" data-lab="Session 3B: OneNote Collaboration and Microsoft 365 Integration">
