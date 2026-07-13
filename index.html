@@ -158,5 +158,87 @@ body.dark .banner {
     }
   </style>
 </head>
+
+<body class="light">
+  <header class="header">
+    <h1>HTM150: Nuvolo for Technicians – Labs</h1>
+  </header>
+
+  <section class="card filter-bar">
+    <div>
+      <strong>Select Lab:</strong>
+      <select id="labFilter" onchange="filterLabs()">
+        <option value="">----Select----</option>
+        <option value="User Guide">User Guide</option>
+        <option value="Lab 1: Orientation and Navigation">Lab 1: Orientation and Navigation</option>
+        <option value="Lab 2: Work Orders and Documentation">Lab 2: Work Orders and Documentation</option>
+        <option value="Lab 3: Time Entry">Lab 3: Time Entry</option>
+        <option value="Optional Lab: Customizing Columns in List View">Optional Lab: Customizing Columns in List View</option>
+        <option value="Lab 4: Submitting Work Orders Through yourHTM">Lab 4: Submitting Work Orders Through yourHTM</option>
+        <option value="Lab 5: Preventive Maintenance">Lab 5: Preventive Maintenance</option>
+        <option value="Lab 6: Asset Management">Lab 6: Asset Management</option>
+        <option value="Technician Capstone Lab">Technician Capstone Lab</option>
+      </select>
+    </div>
+
+    <label class="theme-switch">
+      <input type="checkbox" id="theme-toggle">
+      <span class="slider"></span>
+      <span class="switch-label">Dark Mode</span>
+    </label>
+  </section>
+
+  <main class="container">
+    <div class="banner">
+    Screenshots in these labs may not reflect exactly what you are seeing in your test environment, but the concepts and steps learned in the lectures can still be applied.
+  </div>
+    <section class="lab-section active" data-lab="User Guide">
+      <h2>User Guide</h2>
+      <p>Welcome to the HTM252: PM Toolkit Labs! This guide is designed to help you navigate through the various labs included in this course. </p>
+      <h3>Getting Started</h3>
+      <h3>Tips for Success</h3>
+      <p>If you have questions, reach out to your instructor or refer to the course materials. Happy learning!</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 HTM252 Lab Materials</p>
+  </footer>
+
+    <script>
+    function filterLabs() {
+      const select = document.getElementById('labFilter');
+      const value = select.value;
+      const sections = document.querySelectorAll('.lab-section');
+      sections.forEach(section => {
+        section.classList.toggle('active', section.dataset.lab === value || value === '');
+      });
+    }
+
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark', themeToggle.checked);
+      document.body.classList.toggle('light', !themeToggle.checked);
+    });
+    function toggleAnswerKey(button, sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    if (section.classList.contains('active')) {
+      // Currently visible → hide it
+      section.classList.remove('active');
+      button.textContent = 'Answer Key';
+    } else {
+      // Currently hidden → show it
+      section.classList.add('active');
+      button.textContent = 'Hide Answer Key';
+      
+      // Optional: smoothly scroll to the table when revealed
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+  </script>
   
+</body>
 </html>
