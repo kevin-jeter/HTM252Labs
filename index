@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTM252: PM Toolkit Labs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f4761;
+      --accent: #cce5ff;
+      --gray-border: #dee2e6;
+    }
+
+    body.light {
+      --bg-light: #ffffff;
+      --text-dark: #000000;
+      --card-bg: #ffffff;
+      --header-bg: var(--primary);
+      --input-bg: #f4f4f4;
+      --table-head-bg: #f0f0f0;
+      --table-alt-row-bg: #f9f9f9;
+      --image-border: #808080;
+      --gray-border: #adb5bd;
+    }
+
+    body.dark {
+      --bg-light: #1c1e21;
+      --text-dark: #e9ecef;
+      --card-bg: #2c2f33;
+      --header-bg: #003d7a;
+      --input-bg: #333840;
+      --table-head-bg: #3a3d41;
+      --table-alt-row-bg: #2a2d31;
+      --image-border: #444;
+      h1, h2, h3 {
+        color: var(--accent);
+      }
+      .callout {
+        border-left-color: var(--accent);
+      }
+      .theme-switch input:checked + .slider {
+        background-color: var(--accent);
+      }
+      input::placeholder,
+      select::placeholder {
+        color: #cccccc;
+      }
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 12pt;
+      line-height: 1.5;
+      background: var(--bg-light);
+      padding: 20px;
+      color: var(--text-dark);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    h1, h2, h3 { color: var(--primary); margin-bottom: 10px; }
+    h1 { font-size: 24pt; }
+    h2 { font-size: 18pt; }
+    h3 { font-size: 14pt; }
+    h4 { font-size: 12pt; }
+
+    .header, .footer {
+      background-color: var(--header-bg);
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      transition: background-color 0.3s ease;
+    }
+    .header h1 {
+       margin: 0;
+      color: white;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 10px;
+      border-radius: 0;
+      box-shadow: none;
+      margin-bottom: 10px;
+      transition: none;
+    }
+    .card:hover { box-shadow: none; transform: none; }
+
+    .lab-section {
+      display: none;
+      background: var(--card-bg);
+      border-left: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 10px;
+      margin-bottom: 10px;
+      animation: none;
+      transition: none;
+    }
+    .lab-section.active { display: block; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .styled-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12pt; background-color: var(--card-bg); color: var(--text-dark); }
+    .styled-table th, .styled-table td { border: 1px solid var(--gray-border); padding: 10px; vertical-align: top; text-align: left; }
+    .styled-table thead th { background-color: var(--table-head-bg); }
+    .styled-table tbody tr:nth-child(even) { background-color: var(--table-alt-row-bg); }
+
+    img { display: block; margin-top: 10px; max-width: 40%; height: auto; border: 1px solid var(--image-border); border-radius: 4px; }
+
+    .filter-bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    .theme-switch { display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; }
+    .theme-switch input { display: none; }
+    .theme-switch .slider { width: 40px; height: 20px; background-color: #ccc; border-radius: 20px; position: relative; transition: background-color 0.3s ease; }
+    .theme-switch .slider::before { content: ""; position: absolute; width: 16px; height: 16px; top: 2px; left: 2px; background-color: white; border-radius: 50%; transition: transform 0.3s ease; }
+    .theme-switch input:checked + .slider { background-color: var(--primary); }
+    .theme-switch input:checked + .slider::before { transform: translateX(20px); }
+    .switch-label { font-size: 0.9rem; color: var(--text-dark); }
+
+    .toggle-button { background-color: var(--primary); color: white; border: none; padding: 8px 12px; border-radius: 4px; font-size: 0.95rem; cursor: pointer; margin: 10px 0; transition: background-color 0.3s ease; }
+    .toggle-button:hover { background-color: #003d7a; }
+
+    .callout { border-left: 4px solid var(--primary); background: var(--table-alt-row-bg); padding: 10px 12px; border-radius: 6px; margin: 10px 0; }
+
+    .banner {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border: 1px solid #ffeaa7;
+  border-radius: 6px;
+  font-size: 13.5pt;
+  line-height: 1.45;
+  text-align: center;
+  font-weight: 500;
+}
+
+body.dark .banner {
+  background-color: #5c4a00;
+  color: #ffeaa7;
+  border-color: #ffeaa7;
+}
+
+    .container { max-width: none; margin: 0; }
+
+        input[type="text"],
+    select {
+      background-color: var(--input-bg);
+      color: var(--text-dark);
+      border: 1px solid var(--gray-border);
+      padding: 8px;
+      border-radius: 4px;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  </style>
+</head>
+  
+</html>
