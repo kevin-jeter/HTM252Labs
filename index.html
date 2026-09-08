@@ -209,7 +209,6 @@ body.dark .banner {
         <li>
           Open the Excel file <b>Technology Implementation Project</b>. The workbook contains the following worksheets: 
           <ul>
-            <li>Dashboard</li>
             <li>Tasks</li>
             <li>Timeline</li>
             <li>Resources</li>
@@ -241,7 +240,7 @@ body.dark .banner {
           <img src="Lab-Images/Excel_2.1.png" alt="Lab 2, Step 2.1" style="max-width:100%">
         </li>
         <li>
-          For each task, assign a RACI rating for each project team member using the guidance below.
+          For each task, assign a RACI rating for each project team member using data validation across each role’s columns, leveraging A11:A14 for RACI for all five roles.
           <b>RACI Definitions:</b>
           <ul>
             <li><b>R = Responsible</b> (Performs the work)</li>
@@ -263,7 +262,7 @@ body.dark .banner {
       <p>Answer the following:</p>
       <ol>
         <li>Which role was most frequently assigned as <b>Accountable</b>?
-          <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
+          <input type="text" name="q1" placeholder="e.g. Technical Program Manager as the manager of the team" style="width: 100%; height: 30px;">
         </li>
         <li>Which project task required the greatest number of <b>Consulted</b> participants?
         <input type="text" name="q2" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
@@ -281,14 +280,6 @@ body.dark .banner {
       <ol>
         <li>In the Depends On column, create a drop-down list from the project tasks and select a dependency for each task that depends on another task. Add the Dependency Type in the next column.</li>
         <li>Add a start and end date for each task.</li>
-        <li>Use the DATEDIF function to automatically show you the length of each task. the In the first line of the table, under Length, enter the following: =DATEDIF(K2,L2,"d") 
-          <ol type="a">
-            <li>
-              (The equal sign at the beginning tells Excel you’re entering a formula. DATEDIF is a formula that shows the time difference between two dates. Inside the parentheses, the first two values are the cells you want the formula to calculate from, and “d” indicates you want the number in days.)
-            </li>
-          </ol>
-        </li>
-        <li>Click on the cell you entered the formula in and hover over the lower right corner until a plus sign appears, then click and drag down the column to repeat the formula for the rest of the table. </li>
         <li>In the % Complete column, enter a value for each task, typing the % sign after the number. On the Home tab in the Excel toolbar, click on Conditional Formatting, then hover over Data Bars. Select either Solid Fill or Gradient Fill and a color.</li>
       </ol>
     </section>
@@ -797,7 +788,7 @@ body.dark .banner {
       <ul>
         <li>Building relationships</li>
         <li>Explaining project impact</li>
-        <li>Negotiating priorities</li>
+        <li>Negotiating priorities within the project</li>
         <li>Escalating to leadership</li>
         <li>Seeking stakeholder support</li>
       </ul>
@@ -972,39 +963,7 @@ body.dark .banner {
         <li>Approval process</li>
       </ul>
 
-      <h3>Part 4: Prepare Project Closeout Documentation </h3>
-      <h4>Scenario</h4>
-      <p>Leadership has approved project completion pending final documentation. </p>
-      <h4>Step 1: Create a Project Closeout Report Outline </h4>
-      <p>Include:</p>
-      <ol>
-        <li>Project Overview</li>
-        <li>Project Objectives</li>
-        <li>Deliverables Completed</li>
-        <li>Budget Summary</li>
-        <li>Schedule Performance</li>
-        <li>Risks and Resolutions</li>
-        <li>Lessons Learned</li>
-        <li>Stakeholder Sign-Off</li>
-      </ol>
-      <h4>Step 2: Document Lessons Learned </h4>
-      <p>Identify:</p>
-      <ul>
-        <li>One success</li>
-        <li>One challenge</li>
-        <li>One recommendation for future projects</li>
-      </ul>
-      <h4>Step 3: Obtain Project Sign-Off </h4>
-      <p>Determine which stakeholders should approve project closure. </p>
-      <p>Examples: </p>
-      <ul>
-        <li>Business Stakeholder</li>
-        <li>Project Manager</li>
-        <li>Business Owner</li>
-        <li>Operations Manager</li>
-      </ul>
-
-      <h3>Part 5: Create a Maintenance and Operational Handoff Package </h3>
+      <h3>Part 4: Create a Maintenance and Operational Handoff Package </h3>
       <h4>Scenario</h4>
       <p>The project is transitioning to an operational support team. </p>
       <h4>Step 1: Create a Handoff Checklist </h4>
@@ -1057,7 +1016,40 @@ body.dark .banner {
         <li>Operational walkthrough  </li>
         <li>Support readiness assessment  </li>
       </ul>
+      
+      <h3>Part 5: Prepare Project Closeout Documentation </h3>
+      <h4>Scenario</h4>
+      <p>Leadership has approved project completion pending final documentation. </p>
+      <h4>Step 1: Create a Project Closeout Report Outline </h4>
+      <p>Include:</p>
+      <ol>
+        <li>Project Overview</li>
+        <li>Project Objectives</li>
+        <li>Deliverables Completed</li>
+        <li>Budget Summary</li>
+        <li>Schedule Performance</li>
+        <li>Risks and Resolutions</li>
+        <li>Lessons Learned</li>
+        <li>Stakeholder Sign-Off</li>
+      </ol>
+      <h4>Step 2: Document Lessons Learned </h4>
+      <p>Identify:</p>
+      <ul>
+        <li>One success</li>
+        <li>One challenge</li>
+        <li>One recommendation for future projects</li>
+      </ul>
+      <h4>Step 3: Obtain Project Sign-Off </h4>
+      <p>Determine which stakeholders should approve project closure. </p>
+      <p>Examples: </p>
+      <ul>
+        <li>Business Stakeholder</li>
+        <li>Project Manager</li>
+        <li>Business Owner</li>
+        <li>Operations Manager</li>
+      </ul>
 
+    
       <h3>Reflection Questions </h3>
       <ol>
         <li>Why is project documentation critical to project success?  
