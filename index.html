@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HTM252: PM Toolkit Labs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #0f4761;
@@ -53,7 +55,7 @@
       font-size: 12pt;
       line-height: 1.5;
       background: var(--bg-light);
-      padding: 20px;
+      padding: 0;
       color: var(--text-dark);
       transition: background 0.3s ease, color 0.3s ease;
     }
@@ -69,7 +71,7 @@
       color: white;
       text-align: center;
       padding: 15px 0;
-      border-radius: 8px;
+      border-radius: 0;
       margin-bottom: 24px;
       transition: background-color 0.3s ease;
     }
@@ -156,37 +158,140 @@ body.dark .banner {
       box-sizing: border-box;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
+
+    /* CSS Template layout and visual system */
+    :root {
+      --primary: #005ea2;
+      --primary-dark: #003d6b;
+      --primary-soft: #e8f2fb;
+      --accent: #0b7d4b;
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --surface-2: #eef2f6;
+      --text: #1b1f24;
+      --muted: #4a5560;
+      --border: #c5ced6;
+      --focus: #0b5cab;
+      --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 8px 24px rgba(16, 24, 40, .06);
+      --radius: 12px;
+      --max: 1080px;
+      color-scheme: light;
+    }
+    body.dark {
+      --primary: #7ab7ef;
+      --primary-dark: #9cc9f4;
+      --primary-soft: #16324a;
+      --accent: #6fdbb0;
+      --bg: #121417;
+      --surface: #1c2026;
+      --surface-2: #262b33;
+      --text: #eef2f6;
+      --muted: #b7c0c9;
+      --border: #3d4652;
+      --focus: #8ec4ff;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 10px 28px rgba(0, 0, 0, .28);
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "Source Sans 3", "Segoe UI", sans-serif; font-size: 1.0625rem; line-height: 1.6; background: var(--bg); color: var(--text); }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .app-header { position: sticky; top: 0; z-index: 50; background: var(--primary-dark); color: #fff; box-shadow: 0 2px 10px rgba(0, 0, 0, .18); }
+    .header-inner { max-width: calc(var(--max) + 280px); margin: 0 auto; min-height: 64px; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .brand { display: flex; flex-direction: column; gap: 2px; }
+    .brand .kicker { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; opacity: .85; font-weight: 700; }
+    .brand h1 { margin: 0; font: 600 1.2rem "Source Serif 4", Georgia, serif; color: #fff; }
+    .header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .ghost-btn, .icon-btn { background: rgba(255, 255, 255, .12); color: #fff; border: 1px solid rgba(255, 255, 255, .28); border-radius: 8px; padding: 8px 12px; font: inherit; font-size: .92rem; font-weight: 600; cursor: pointer; }
+    .ghost-btn:hover, .icon-btn:hover { background: rgba(255, 255, 255, .2); }
+    .layout { max-width: calc(var(--max) + 280px); margin: 0 auto; padding: 20px; display: grid; grid-template-columns: 240px 1fr; gap: 22px; align-items: start; }
+    .sidebar { position: sticky; top: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px; }
+    .sidebar h2 { margin: 0 0 10px; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .lab-nav { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+    .lab-nav button { width: 100%; text-align: left; background: transparent; border: 1px solid transparent; color: var(--text); border-radius: 8px; padding: 9px 10px; font: inherit; font-weight: 600; cursor: pointer; }
+    .lab-nav button:hover { background: var(--surface-2); }
+    .lab-nav button[aria-current="true"] { background: var(--primary-soft); border-color: var(--primary); color: var(--primary-dark); }
+    .lab-nav .meta { display: block; font-size: .78rem; font-weight: 400; color: var(--muted); }
+    .progress-wrap { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .progress-label { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); margin-bottom: 6px; }
+    progress { width: 100%; height: 10px; accent-color: var(--accent); }
+    .field-hint { margin: 6px 0 0; color: var(--muted); font-size: .88rem; }
+    .clear-btn { margin-top: 12px; width: 100%; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font: inherit; font-size: .9rem; cursor: pointer; }
+    .clear-btn:hover { background: var(--surface-2); }
+    main { min-width: 0; }
+    .lab-section { display: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 24px; }
+    .lab-section.active { display: block; }
+    h2, h3, h4 { color: var(--primary-dark); }
+    h2 { margin-top: 0; font-family: "Source Serif 4", Georgia, serif; }
+    .styled-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .95rem; }
+    .styled-table th, .styled-table td { border-bottom: 1px solid var(--border); padding: 10px 12px; vertical-align: top; text-align: left; }
+    .styled-table thead th { background: var(--surface-2); }
+    .styled-table tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--surface-2) 55%, transparent); }
+    img { display: block; max-width: 100%; width: 100%; height: auto; margin: 12px auto; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-2); }
+    img[style*="max-width:75%"], img[style*="max-width: 75%"] { max-width: 95%; }
+    .lab-section img { width: min(95%, 1100px); }
+    .gif-player { display: flex; align-items: flex-start; gap: 12px; margin: 12px 0; }
+    .gif-frame { position: relative; flex: 1 1 auto; min-width: 0; max-width: 1100px; }
+    .gif-frame > img.gif-animation { width: 100% !important; max-width: 100% !important; margin: 0; }
+    .gif-frame > img.gif-poster { position: absolute; z-index: 1; inset: 0; width: 100% !important; height: 100% !important; max-width: none !important; margin: 0 !important; object-fit: fill; pointer-events: none; }
+    .still-image-player .gif-frame > img { width: 100% !important; max-width: 100% !important; margin: 0; }
+    .gif-frame > img.gif-poster[hidden] { display: none !important; }
+    .gif-toggle { flex: 0 0 auto; white-space: nowrap; background: var(--primary); color: #fff; border: 1px solid var(--primary); border-radius: 8px; padding: 8px 12px; font: inherit; font-size: .92rem; font-weight: 600; cursor: pointer; }
+    .gif-toggle:hover { filter: brightness(.92); }
+    .gif-control-spacer { flex: 0 0 3.35rem; }
+    .gif-toggle { width: 3.35rem; padding-right: 0; padding-left: 0; text-align: center; }
+    body.dark .gif-toggle { background: var(--surface-2); color: var(--text); border-color: var(--border); }
+    .callout { border-left: 5px solid var(--primary); background: var(--primary-soft); padding: 14px 16px; border-radius: 8px; margin: 16px 0; }
+    input[type="text"], select { width: 100%; font: inherit; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+    input[type="text"]:focus, select:focus { border-color: var(--focus); background: var(--surface); }
+    .status { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); background: #123; color: #fff; padding: 10px 16px; border-radius: 999px; opacity: 0; pointer-events: none; transition: opacity .2s; z-index: 80; }
+    .status.show { opacity: 1; }
+    .app-footer { max-width: calc(var(--max) + 280px); margin: 0 auto 24px; padding: 0 20px; color: var(--muted); font-size: .9rem; }
+    @media (max-width: 900px) { .layout { grid-template-columns: 1fr; padding: 14px; } .sidebar { position: static; } .lab-nav { display: grid; grid-template-columns: 1fr 1fr; } }
+    @media print { .app-header, .sidebar, .status { display: none !important; } .layout { display: block; max-width: none; padding: 0; } .lab-section { display: block !important; break-before: page; box-shadow: none; } body { background: #fff; color: #000; } }
   </style>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">DE74FHQC2R6F-530422389-13919</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">fd296d8c-ced9-41f9-894f-1914af3fcfe3</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">https://kildagroup.sharepoint.com/sites/KG_CS_VA_HTM/_layouts/15/DocIdRedir.aspx?ID=DE74FHQC2R6F-530422389-13919, DE74FHQC2R6F-530422389-13919</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
 </head>
 
 <body class="light">
-  <header class="header">
-    <h1>HTM252: PM Toolkit Labs</h1>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="kicker">HTM252 Project Management Training</span>
+        <h1>PM Toolkit Labs</h1>
+      </div>
+      <div class="header-actions">
+        <button class="ghost-btn" type="button" id="save-btn">Save answers</button>
+        <button class="ghost-btn" type="button" id="export-btn">Download answers</button>
+        <button class="ghost-btn" type="button" id="print-btn">Print / PDF</button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-pressed="false">Dark mode</button>
+      </div>
+    </div>
   </header>
 
-  <section class="card filter-bar">
-    <div>
-      <strong>Select Lab:</strong>
-      <select id="labFilter" onchange="filterLabs()">
-        <option value="">----Select----</option>
-        <option value="User Guide">User Guide</option>
-        <option value="Session 1: Placeholder">Session 1: Placeholder</option>
-        <option value="Session 2: Project Management with Microsoft Excel">Session 2: Project Management with Microsoft Excel</option>
-        <option value="Session 3: OneNote Foundations for Project Organization">Session 3: OneNote Foundations for Project Organization</option>
-        <option value="Session 4: Project Management in Microsoft Teams Lab">Session 4: Project Management in Microsoft Teams Lab</option>
-        <option value="Session 5: Communication Skills for Project Managers">Session 5: Communication Skills for Project Managers</option>
-        <option value="Session 6: Project Management Closeout Lab">Session 6: Project Management Closeout Lab</option>
-        </select>
-    </div>
+  <div class="layout">
+    <nav class="sidebar" aria-label="Lab navigation">
+      <h2>Labs</h2>
+      <ul class="lab-nav" id="lab-nav"></ul>
+      <div class="progress-wrap">
+        <div class="progress-label">
+          <span>Answered fields</span>
+          <span id="progress-text">0%</span>
+        </div>
+        <progress id="progress-bar" max="100" value="0" aria-labelledby="progress-text">0%</progress>
+        <p class="field-hint">Answers stay in this browser until you clear them.</p>
+        <button class="clear-btn" type="button" id="clear-btn">Clear saved answers</button>
+      </div>
+    </nav>
 
-    <label class="theme-switch">
-      <input type="checkbox" id="theme-toggle">
-      <span class="slider"></span>
-      <span class="switch-label">Dark Mode</span>
-    </label>
-  </section>
-
-  <main class="container">
+  <main id="main" tabindex="-1">
     <section class="lab-section active" data-lab="User Guide">
       <h2>User Guide</h2>
       <p>Welcome to the HTM252: PM Toolkit Labs! This guide is designed to help you navigate through the various labs included in this course. </p>
@@ -195,97 +300,116 @@ body.dark .banner {
       <p>If you have questions, reach out to your instructor or refer to the course materials. Happy learning!</p>
     </section>
 
-    <section class="lab-section" data-lab="Session 1: Placeholder">
-      <h2>Session 1: Placeholder</h2>
-    </section>
-
-    <section class="lab-section" data-lab="Session 2: Project Management with Microsoft Excel">
-      <h2>Session 2: Project Management with Microsoft Excel</h2>
+    <section class="lab-section" data-lab="Lab 1: Project Management with Microsoft Excel">
+      <h2>Lab 1: Project Management with Microsoft Excel</h2>
       <h4>Scenario</h4>
       <p>You are supporting a technology implementation project. In this first section, you will use Excel to connect information within a workbook and implement features that help to visualize project information.</p>
 
       <h3>Part 1: Review the Project Information and Assign Tasks</h3>
       <ol>
-        <li>
-          Open the Excel file <b>Technology Implementation Project</b>. The workbook contains the following worksheets: 
+        <style>
+          .step-spacing {
+          margin-bottom: 10vh;
+         }
+          </style>
+
+        <li class="step-spacing">
+          Open the Excel file <b>Technology Implementation Project</b>. This workbook contains the Project Overview worksheet.
           <ul>
-            <li>Tasks</li>
-            <li>Timeline</li>
-            <li>Resources</li>
-            <li>Team Members</li>
-            <li>Budget</li>
+          <img src="Lab-Images/ExcelLab_1.1.png" alt="Lab 2, Step 1.2" style="max-width: 150%;">
           </ul>
         </li>
-        <li>On the <b>Tasks</b> worksheet you’ll see project activities that need ownership assignments. You’ll assign these using a drop-down list of project roles. To do this, start by selecting the blank cells under the Assigned To heading.
-        <img src="Lab-Images/Excel_1.2.png" alt="Lab 2, Step 1.2" style="max-width:100%">
+        <li class="step-spacing">On the <b>Project Overview</b> worksheet you’ll see project activities that need ownership assignments. You’ll assign these using a drop-down list of project roles. To do this, start by selecting the blank cells under the Assigned To heading.
+          <ul>
+          <img src="Lab-Images/ExcelLab_1.2.gif" alt="Lab 2, Step 1.2" style="max-width: 150%">
+          </ul>
         </li>
-        <li>With those cells selected, navigate to the <b>Data</b> tab on the Excel toolbar and click on Data Validation in the <b>Data Tools</b> section.
-        <img src="Lab-Images/Excel_1.3.png" alt="Lab 2, Step 1.3" style="max-width:100%">
+        <li class="step-spacing">With those cells selected, navigate to the <b>Data</b> tab on the Excel toolbar, find the <b>Data Tools</b> section, and click on <b>Data Validation</b>.
+          <ul>
+          <img src="Lab-Images/ExcelLab_1.3.gif" alt="Lab 2, Step 1.3" style="max-width: 150%">
+          </ul>
         </li>
-        <li>In the Data Validation dialog, select List from the Allow drop-down. 
-        <img src="Lab-Images/Excel_1.4.png" alt="Lab 2, Step 1.4" style="max-width:100%">
+        <li class="step-spacing">In the Data Validation dialog, select List from the Allow drop-down. 
+          <ul>
+          <img src="Lab-Images/ExcelLab_1.4.gif" alt="Lab 2, Step 1.4" style="max-width: 150%">
+          </ul>
         </li>
-        <li>Click in the Source field. Keeping the Data Validation dialog open, navigate to the <b>Roles</b> worksheet of the workbook and select the cells under the Role header. The Source field populates with the cells you’ve selected.
-        <img src="Lab-Images/Excel_1.5.png" alt="Lab 2, Step 1.5" style="max-width:100%">
+        <li class="step-spacing">Click in the Source field. Keeping the Data Validation dialog open, navigate to the <b>Roles</b> worksheet of the workbook and select the cells under the Role header. The Source field populates with the cells you’ve selected.
+          <ul>
+          <img src="Lab-Images/ExcelLab_1.5.gif" alt="Lab 2, Step 1.5" style="max-width: 150%;">
+          </ul>
         </li>
         <li>Click <b>OK</b>.</li>
         <li>On the Tasks worksheet, the cells under Assigned To now have a drop-down list of roles. For each task, select a role to assign the task to.</li>
       </ol>
 
-      <h3>Part 2: Complete the RACI Matrix</h3>
-      <p>To add more nuance to the task assignments, let's create a RACI Matrix.</p>
+      <h3>Part 2: Managing Task Accountability</h3>
+      <p>To add more nuance to the task assignments, let's create a new <b>Supervising</b> column next to the <b>Assigned To</b> column.</p>
       <ol>
-        <li>
-          For the columns under the roles in the project tasks table, repeat the steps above to create a new drop-down list. For this list, the source data will be the first column of the RACI definitions table (also on the Tasks worksheet).
-          <img src="Lab-Images/Excel_2.1.png" alt="Lab 2, Step 2.1" style="max-width:100%">
-        </li>
-        <li>
-          For each task, assign a RACI rating for each project team member using data validation across each role’s columns, leveraging A11:A14 for RACI for all five roles.
-          <b>RACI Definitions:</b>
+        <li class="step-spacing">
+          Add a new column to the sheet and name it <b>Supervising</b>. This column will be used to assign a supervising role for each task.
           <ul>
-            <li><b>R = Responsible</b> (Performs the work)</li>
-            <li><b>A = Accountable</b> (Ultimately owns the outcome)</li>
-            <li><b>C = Consulted</b> (Provides input before decisions)</li>
-            <li><b>I = Informed</b> (Kept updated on progress)</li>
+          <img src="Lab-Images/ExcelLab_2.1.gif" alt="Lab 2, Step 2.1" style="max-width:150%">
           </ul>
         </li>
-        <li>Set a status for each task using the same method of creating a drop-down list in the Status column. For the source data of this, use the Task Status table on the <b>Tasks</b> worksheet.</li>
-        <li>Apply conditional formatting to automatically change the cell color of the task’s status. To do this, select the cells in the Status column and navigate to the <b>Home</b> tab in the Excel toolbar. In the <b>Styles</b> section, click on <b>Conditional Formatting</b> and select <b>New Rule</b> from the drop-down menu.
-        <img src="Lab-Images/Excel_2.4.png" alt="Lab 2, Step 2.4" style="max-width:100%">
+        <li class="step-spacing">
+          Using the same method from Part 1, create a drop-down list in the <b>Supervising</b> column using the same source data from the <b>Roles</b> list.
+          <ul>
+            <img src="Lab-Images/ExcelLab_2.2.gif" alt="Lab 2, Step 2.1" style="max-width:150%">
+          </ul>
         </li>
-        <li>In the New Formatting Rule dialog, select <b>Format only cells that contain</b>. In the Edit the Rule Description section, select Specific Text from the first drop-down menu and type Completed in the text field. Click the <b>Format</b> button. </li>
-        <li>In the Format Cells dialog, click on <b>Color</b> and select green as the cell fill. Click <b>OK</b> on both the Format Cells dialog and the New Formatting Rule dialog. </li>
-        <li>Repeat the above steps so the status In Progress turns the cell fill yellow and the Not Started status tuns the cell fill red.</li>
+        <li class="step-spacing">
+          Assign a supervising role for each task using the newly created drop-list. Consider availability and workload for each role as you plan the assignments for this project.
+        </li>
+        <li class="step-spacing">
+          Conditional Formatting can be helpful when reading a worksheet with many rows of data. In this case, we can use conditional formatting to highlight the status of each task. To do this, navigate to the <b>Home</b> tab in the Excel toolbar and select the cells in the Status column. In the <b>Styles</b> section, click on <b>Conditional Formatting</b> and select <b>New Rule</b> from the drop-down menu.
+          <ul>
+          <img src="Lab-Images/ExcelLab_2.3.gif" alt="Lab 2, Step 2.4" style="max-width:150%">
+          </ul>
+        </li>
+        <li class="step-spacing">
+          In the New Formatting Rule dialog, select <b>Format only cells that contain</b>. In the Edit the Rule Description section, select <b>Specific Text</b> from the first drop-down menu and type <b>Complete</b> in the text field. Click the <b>Format</b> button.
+          <ul>
+          <img src="Lab-Images/ExcelLab_2.4.gif" alt="Lab 2, Step 2.4" style="max-width:150%">
+          </ul> 
+        </li>
+        <li class="step-spacing">In the Format Cells dialog, click on <b>Color</b> and select green as the cell fill. Click <b>OK</b> on both the Format Cells dialog and the New Formatting Rule dialog. 
+          <ul>
+          <img src="Lab-Images/ExcelLab_2.5.gif" alt="Lab 2, Step 2.4" style="max-width:150%">
+          </ul>
+        </li>
+        <li class="step-spacing">Repeat the previous steps so that the "In Progress" status turns the cell yellow and the "Not Started" status turns the cell red. When using the formatting rules to format only cells that contain a specific text, any misspellings will not create the proper color change. Fix any errors in the status to make sure each cell is formatted as shown below.
+          <ul>
+          <img src="Lab-Images/ExcelLab_2.6.png" alt="Lab 2, Step 2.4" style="max-width:150%">
+          </ul>
+        </li>
       </ol>
 
-      <h3>Part 3: Validation Questions</h3>
-      <p>Answer the following:</p>
-      <ol>
-        <li>Which role was most frequently assigned as <b>Accountable</b>?
-          <input type="text" name="q1" placeholder="e.g. Technical Program Manager as the manager of the team" style="width: 100%; height: 30px;">
-        </li>
-        <li>Which project task required the greatest number of <b>Consulted</b> participants?
-        <input type="text" name="q2" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>Why is it important to have only one <b>Accountable</b> role per task?
-        <input type="text" name="q3" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>What project risks could occur if responsibilities are not clearly defined?
-        <input type="text" name="q4" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-      </ol>
-
-      <h3>Part 4: Date Validation Questions</h3>
+      <h3>Part 3: Date Validation Questions</h3>
       <p>Please complete the following additional activities: </p>
       <ol>
-        <li>In the Depends On column, create a drop-down list from the project tasks and select a dependency for each task that depends on another task. Add the Dependency Type in the next column.</li>
-        <li>Add a start and end date for each task.</li>
-        <li>In the % Complete column, enter a value for each task, typing the % sign after the number. On the Home tab in the Excel toolbar, click on Conditional Formatting, then hover over Data Bars. Select either Solid Fill or Gradient Fill and a color.</li>
+        <li class="step-spacing">Select all boxes in the % Complete column. On the Home tab in the Excel toolbar, click on Conditional Formatting, then hover over Data Bars. Select a <b>Gradient Fill</b> option.
+          <ul>
+          <img src="Lab-Images/ExcelLab_4.2.gif" alt="Lab 2, Step 2.4" style="max-width:150%">
+          </ul>
+        </li>
+                <li>Use the DATEDIF function to automatically show you the length of each task. In the first line of the table, under Length, enter the following: =DATEDIF(F2,G2,"d"). Be sure to hit enter after you finish typing the formula.
+          <ol type="a">
+            <li>
+              The equal sign at the beginning tells Excel you’re entering a formula. DATEDIF is a formula that shows the time difference between two dates. Inside the parentheses, the first two values are the cells you want the formula to calculate from, and “d” indicates you want the number in days.
+            </li>
+          </ol>
+        </li>
+        <li class="step-spacing">Click on the cell you entered the formula in and hover over the lower right corner until a plus sign appears, then click and drag down the column to repeat the formula for the rest of the table.
+         <ul>
+          <img src="Lab-Images/ExcelLab_4.1.gif" alt="Lab 2, Step 2.4" style="max-width:150%">
+          </ul>
+        </li>
       </ol>
     </section>
 
-    <section class="lab-section" data-lab="Session 3: OneNote Foundations for Project Organization">
-      <h2>Session 3: OneNote Foundations for Project Organization</h2>
+    <section class="lab-section" data-lab="Lab 2: OneNote Foundations for Project Organization">
+      <h2>Lab 2: OneNote Foundations for Project Organization</h2>
       <h4>Scenario</h4>
       <p>You have recently joined a project team responsible for implementing a new enterprise software solution for a healthcare organization. Your project manager has asked you to create and organize a OneNote notebook that will serve as the project's central repository for documentation, requirements, meeting notes, and project planning information.</p> 
       <p>You will create the project notebook, organize project content, and implement information management techniques that support project execution.</p>
@@ -295,23 +419,28 @@ body.dark .banner {
       <h4>Create a New Notebook</h4>
       <ol>
         <li>Open Microsoft OneNote.</li>
-        <li>Select <b>File > New</b>.</li>
-        <li>Create a new notebook name: <b>Enterprise Software Implementation Project</b>.</li>
-        <li>Save the notebook to OneDrive.</li>
+        <li>Select <b>File > New</b>. You will need to select a folder in your organizations OneDrive to ensure other users can access it.</li>
+        <li> Make the new Notebooks name: <b>Enterprise Software Implementation Project</b>.</li>
+        <li> Should any pop ups appear asking if you would like to share the Notebook, select <b>Not Now</b>.</li>
       </ol>
 
       <h4>Create Sections</h4>
-      <p>Create the following notebook sections.</p>
+      <p>Create the following notebook sections. Press enter after typing each name in order to ensure the name is applied.</p>
       <ul>
         <li>Project Overview</li>
         <li>Requirements</li>
         <li>Meetings</li>
-        <li>Risks & Issues</li>
+        <li>Risks and Issues</li>
         <li>Training</li>
       </ul>
-
+          <ul>
+          <img src="Lab-Images/OneNoteLab_1.1.gif" alt="Lab 2, Step 2.4" style="max-width:150%">
+          </ul> 
       <h4>Create Pages</h4>
-      <p>Create the following pages.</p>
+      <p>Each section is created with a blank page in it. Title the blank pages or click "Add Page" to create the pages for each section as outlined in this table.</p>
+         <ul>
+            <img src="Lab-Images/OneNoteLab_1.2.gif" alt="Lab 2, Step 2.4" style="max-width:150%">
+         </ul> 
       <table class="styled-table">
           <thead>
             <tr>
@@ -336,10 +465,10 @@ body.dark .banner {
             </tr>
             <tr>
               <td rowspan="1"><strong>Meetings</strong></td>
-              <td>Kickoff Meeting Notes</td>
+              <td>Weekly Meeting</td>
             </tr>
             <tr>
-              <td rowspan="1"><strong>Risks & Issues</strong></td>
+              <td rowspan="1"><strong>Risks and Issues</strong></td>
               <td>Risk Register</td>
             </tr>
             <tr>
@@ -348,48 +477,52 @@ body.dark .banner {
             </tr>
           </tbody>
       </table>
+      
 
         <h3>Part 2: Use and Adapt Templates</h3>
         <h4>Apply a Template</h4>
         <ol>
-          <li>Navigate to the <b>Kickoff Meeting Notes</b> page.</li> 
-          <li>Select <b>Insert > Page Templates</b>.</li>
-          <li>Choose a meeting notes template.
-          <img src="Lab-Images/PMTK_lab2_2.1a.png" alt="Lab 3, Step 2.1a" style="max-width:100%">
-            <img src="Lab-Images/PMTK_lab2_2.1b.png" alt="Lab 3, Step 2.1b" style="max-width:100%">
+          <li>Navigate to the <b>Meetings</b> section.</li> 
+          <li>Select <b>Insert > Page Templates</b>. When a template is applied it will create a new page based on the selected template.</li>
+          <li>Choose select the Project Overview template. Change the page title to <b>Kick Off Meeting</b>.
+        
+            <img src="Lab-Images/OneNoteLab_2.1.gif" alt="Lab 2, Step 2.4" style="max-width:150%">
+
           </li>
         </ol>
 
         <h4>Customize the Template</h4>
         <p>Modify the template to include:</p>
         <ul>
-          <li>Meeting Date</li>
+          <li>Agenda</li>
           <li>Attendees</li>
           <li>Objectives</li>
           <li>Action Items</li>
           <li>Decisions Made</li>
         </ul>
-      <img src="Lab-Images/PMTK_lab2_2.2.png" alt="Lab 3, Step 2.2" style="max-width:100%">
-
-        <h4>Save Your Changes</h4>
-        <p>Add sample project information to each section of the template.</p>
+        <ul>
+          <img src="Lab-Images/OneNoteLab_2.2.png" alt="Lab 3, Step 2.2" style="max-width:150%">
+        </ul>
 
         <h3>Part 3: Apply Tags and Organize Information</h3>
         <h4>Add Sample Action Items</h4>
-        <p>Under the Kickoff Meeting Notes page, add:</p>
+        <p>On the Kick off Meeting page, under Action Items add the following:</p>
         <ul>
           <li>Gather stakeholder requirements</li>
           <li>Complete system design</li>
           <li>Schedule training sessions</li>
           <li>Review project risks</li>
         </ul>
-      <img src="Lab-Images/PMTK_lab2_3.1.png" alt="Lab 3, Step 3.1" style="max-width:100%">
-
+        <ul>
+          <img src="Lab-Images/OneNoteLab_3.1.png" alt="Lab 3, Step 3.1" style="max-width:150%">
+        </ul>
         <h4>Apply Tags</h4>
+        <p>Tags can be applied to text in OneNote allowing for easy organization and searching. Do this by selecting the bullets in your list and remove them by pressing back space. Then, highlight each row and add a tag as shown in the gif below. Follow the table to see which tag to add to which row.
+        </p>
         <table class="styled-table">
           <thead>
             <tr>
-              <th style="width: 18%;">Task</th>
+              <th style="width: 35%;">Task</th>
               <th>Suggested Tag</th>
             </tr>
           </thead>
@@ -412,147 +545,60 @@ body.dark .banner {
             </tr>
             </tbody>
       </table>
-      <img src="Lab-Images/PMTK_lab2_3.2.png" alt="Lab 3, Step 3.2" style="max-width:100%">
-
+            <ul>
+              <img src="Lab-Images/OneNoteLab_3.2.gif" alt="Lab 3, Step 3.2" style="max-width:150%">
+            </ul>
       <h4>Search by Tag</h4>
       <ol>
-        <li>Select <b>Home > Find Tags</b>.</li>
+        <li>Go back to Home on the top menu bar. Click on the three dots, then <b>Find Tags</b>.</li>
         <li>Review the tagged items generated by OneNote.
-        <img src="Lab-Images/PMTK_lab2_3.3.png" alt="Lab 3, Step 3.3" style="max-width:100%">
+          <img src="Lab-Images/OneNoteLab_3.3.gif" alt="Lab 3, Step 3.3" style="max-width:150%">
         </li>
       </ol>
-      
     </section>
 
-<!-- Removed, but commenting to save just in case it's needed later
-    <section class="lab-section" data-lab="Session 3B: OneNote Collaboration and Microsoft 365 Integration">
-      <h2>Session 3B: OneNote Collaboration and Microsoft 365 Integration</h2>
-      <h4>Scenario</h4>
-      <p>Your project notebook has been created and is now ready to be used by the broader project team. Your project manager wants all team members to collaborate within OneNote, maintain meeting documentation, and leverage Microsoft 365 integrations to streamline communication and information sharing.</p>
-      <p>You will share the notebook, simulate collaboration, and integrate OneNote with Teams and Outlook.</p>
-
-      <h3>Part 1: Collaborate with Your Team</h3>
-      <h4>Share the Notebook</h4>
-      <ol>
-        <li>Open your project notebook.</li>
-        <li>Select <b>File > Share</b>.</li>
-        <li>Enter a teammate's email address (or a simulated address provided by your instructor).</li>
-        <li>Grant editing permissions.</li>
-      </ol>
-      <h4>Simulate Collaboration</h4>
-      <p>Create a page called <b>Project Status Updates</b>. Add:</p>
-      <ul>
-        <li>Current project status</li>
-        <li>Upcoming milestones</li>
-        <li>Outstanding issues</li>
-      </ul>
-      <h4>Review Collaboration Features</h4>
-      <p>Observe and document:</p>
-      <ul>
-        <li>Author initials</li>
-        <li>Shared edits</li>
-        <li>Version history (if available)</li>
-      </ul>
-
-      <h3>Part 2: Integrate OneNote with Microsoft Teams </h3>
-      <h4>Open Microsoft Teams</h4>
-      <ol>
-        <li>Launch Microsoft Teams.</li>
-        <li>Navigate to a project Team.</li>
-      </ol>
-      <h4>Add OneNote to Teams</h4>
-      <ol>
-        <li>Select the <b>+ (Add Tab)</b> button.</li>
-        <li>Choose <b>OneNote</b>.</li>
-        <li>Link the notebook you created in Session 3A.</li>
-      </ol>
-      <h4>Review Shared Editing</h4>
-      <p>Verify that notebook content can be accessed and edited through Teams.</p>
-
-      <h3>Part 3: Embed Meetings and Explore Microsoft 365 Integrations</h3>
-      <h4>Create a Sample Meeting</h4>
-      <ol>
-        <li>Using Outlook or Teams Calendar, create a meeting titled: <b>Project Status Meeting</b></li>
-        <li>Set the duration to 30 minutes.</li>
-      </ol>
-      <h4>Insert Meeting Details</h4>
-      <ol>
-        <li>Open OneNote.</li>
-        <li>Navigate to the Meetings section.</li>
-        <li>Select <b>Home > Meeting Details</b>.</li>
-        <li>Insert the meeting information into the notebook.</li>
-      </ol>
-      <h4>Review Microsoft 365 Integrations</h4>
-      <p>Identify the path for at least three ways OneNote integrates with:</p>
-      <ul>
-        <li>Microsoft Teams</li>
-        <li>Outlook</li>
-        <li>OneDrive</li>
-        <li>Word</li>
-        <li>Excel</li>
-      </ul>
-
-      <h3>Reflection Questions</h3>
-      <ol>
-        <li>How does sharing a notebook improve team collaboration?
-        <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>What advantages does Teams integration provide for project teams?
-        <input type="text" name="q2" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>How can meeting details improve project documentation?
-        <input type="text" name="q3" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>Which Microsoft 365 integration do you believe is most valuable for a project manager and why?
-        <input type="text" name="q4" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>How can shared notebooks improve project transparency and communication?
-        <input type="text" name="q5" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-      </ol>
-
-    </section> -->
-
-    <section class="lab-section" data-lab="Session 4: Project Management in Microsoft Teams Lab">
-      <h2>Session 4: Project Management in Microsoft Teams Lab</h2>
+    <section class="lab-section" data-lab="Lab 3: Project Management in Microsoft Teams Lab">
+      <h2>Lab 3: Project Management in Microsoft Teams Lab</h2>
       <h4>Scenario</h4>
       <p>You have been assigned as the Technical Program Manager for a healthcare technology implementation project. Your first responsibility is to establish a Microsoft Teams workspace where project team members can collaborate, share documents, track project information, and conduct meetings.</p>
-      <p>Your team includes:</p>
-      <ul>
-        <li>Technical Program Manager</li>
-        <li>Business Analyst</li>
-        <li>Solution Architect</li>
-        <li>Developer</li>
-        <li>QA Analyst</li>
-        <li>Business Stakeholder</li>
-      </ul>
+      
       <p>You will create a Team, organize channels, assign permissions, share project documentation, and integrate project management tools.</p>
 
       <h3>Part 1: Create a Project Team</h3>
       <h4>Step 1: Open Microsoft Teams</h4>
       <ol>
-        <li>Launch Microsoft Teams.</li>
-        <li>Select <b>Teams</b> from the left navigation pane.</li>
-        <li>Click <b>Join or Create a Team</b>.</li>
-        <li>Select <b>Create Team</b>.</li>
+        <li>Launch Microsoft Teams, and ensure you are in the <b>Chat</b> Section.</li>
+        <li>Select <b>Teams and channels</b> from the left navigation pane. You may need to select "See all your teams".</li>
+        <li>Click <b>Create a Team</b> in the top right corner.</li>
       </ol>
-      <h4>Step 2: Create a Team Using Class Participants</h4>
+          <ul>
+            <img src="Lab-Images/TeamsLab_1.1.gif" alt="Lab 3, Step 3.2" style="max-width:150%">
+          </ul>
+      <h4>Step 2: Create a Team</h4>
       <ol>
-        <li>Select <b>From Scratch</b> or use your instructor's preferred method.</li>
-        <li>Choose <b>Private Team</b>.</li>
+        <li>When creating a team there are several templates to choose from. Select <b>From Scratch</b> if it is not automatically selected.</li>
         <li>Name the Team <b>Healthcare Technology Implementation Project</b>. </li>
+        <li>Ensure the team is set to <b>Private Team</b>.</li>
+        <li>Name your first channel <b>General</b>.</li>
+        <li>Click <b>Create</b>.</li>
+        <li>Skip adding members for now.</li>
       </ol>
+          <ul>
+            <img src="Lab-Images/TeamsLab_1.2.gif" alt="Lab 3, Step 3.2" style="max-width:150%">
+          </ul>
     
 
       <h3>Part 2: Create and Organize Channels</h3>
-      <h4>Step 1: Create Project Channels</h4>
-      <p>Within the Team, create the following channels by selecting “…”  on your new team, and select <b>Add channel</b>:</p>
-      <img src="Lab-Images/PMTK_lab3a_3.png" alt="Lab 4, adding channel in teams" style="max-width:100%">
+      <h4>Create Project Channels</h4>
+      <p>When creating a channel you can enter a name and description. Create the following channels with the following descriptions by selecting “…” on your new team, and click <b>Add channel</b>:</p>
+        <ul>
+          <img src="Lab-Images/TeamsLab_2.1.gif" alt="Lab 3, Step 3.2" style="max-width:150%">
+        </ul>
       <table class="styled-table">
           <thead>
             <tr>
               <th style="width: 18%;">Channel Name</th>
-              <th>Purpose</th>
+              <th>Description</th>
             </tr>
           </thead>
           <tbody>
@@ -578,38 +624,40 @@ body.dark .banner {
             </tr>
             </tbody>
       </table>
-      <h4>Step 2: Add Channel Descriptions</h4>
-      <p>For each channel:</p>
-      <ol>
-        <li>Select the channel settings.</li>
-        <li>Add a brief description explaining its purpose.</li>
-      </ol>
-      
+
       <h3>Part 3: Configure Permissions and Access </h3>
       <h4>Review Team Roles</h4>
-      <p>Navigate to:</p>
-      <p><b>Team Settings > Manage Team</b></p>
-      <p>Review the difference between: </p>
-      <ul>
-        <li>Owners</li>
-        <li>Members</li>
-        <li>Guests</li>
-      </ul>
+      <p>Click on the three dots next to your team name and select <b>Manage team</b>, then select the <b>Settings</b> tab to access the various permission and settings of your team.</p>
+      <p>Review the member permissions to see what they are allowed to do within the team.</p>
+
+        <ul>
+          <img src="Lab-Images/TeamsLab_3.1.gif" alt="Lab 3, Step 3.2" style="max-width:150%">
+        </ul>
       
 
       <h3>Part 4: Project Management Using Teams</h3>
-      <h4>Step 1: Create a Project Status Post</h4>
-      <p>In the <b>Project Planning</b> channel, create a thread containing a <b>Project Status Update</b>:</p>
+      <h4>Step 1: Configuring Channels</h4>
+      <p>Ensure the <b>Project Planning</b> channel is properly configured as a <b>Posts</b> channel. Click on the "..." to the top right when in the channel, select <b>Edit channel</b> and choose <b>Posts</b> in the pop up window.</p>
+        <ul>
+          <img src="Lab-Images/TeamsLab_4.1.gif" alt="Lab 3, Step 3.2" style="max-width:150%">
+        </ul>
+      
+      <h4>Step 2: Create a Project Status Post</h4>
+      <p>In the <b>Project Planning</b> channel, create a post by clicking <b>Post in Channel</b> at the bottom of the screen. Create a post with the title <b>Project Status Update</b> and the following content:</p>
       <ul>
         <li>Current Status: On Track</li>
         <li>Next Milestone: Requirements Review</li>
         <li>Risks Identified: None</li>
         <li>Upcoming Meeting: Project Kickoff</li>
       </ul>
-      <h4>Step 2: Tag Team Members</h4>
-      <p>Mention at least one team members using the <b>@mention</b> feature. You can mention yourself, or anyone else you've added to your team.</p>
-      <h4>Step 3: Pin Important Content </h4>
-      <p>Pin the Project Status Update to the channel.</p>
+      <h4>Step 3: Tag Team Members</h4>
+      <p>A powerful tool in Teams is the ability<b>@mention</b> people that are in the same team by typing <b>@</b> followed by their name. You can mention yourself, anyone else you've added to your team, everyone in a specific channel or even the entire team. When mentioned the recipient will receive a notification.</p>
+      <h4>Step 4: Pin Important Content </h4>
+      <p>Pin the Project Status Update to the channel. A pinned message or post will be visible at the top of the channel for all members.</p>
+        <ul>
+          <img src="Lab-Images/TeamsLab_4.2.gif" alt="Lab 3, Step 3.2" style="max-width:150%">
+        </ul>
+      
 
       <h3>Reflection Questions </h3>
       <ol>
@@ -625,238 +673,8 @@ body.dark .banner {
       </ol>
     </section>
 
-
-    <section class="lab-section" data-lab="Session 5: Communication Skills for Project Managers">
-      <h2>Session 5: Communication Skills for Project Managers</h2>    
-      <h4>Scenario</h4>
-      <p>You are serving as the Program Manager for a healthcare technology implementation project for the VA. The project team is responsible for deploying a new patient scheduling system within six months. The project is now entering Month 5 with one month remaining until go-live.</p>
-      <p><b>The Scope Creep Situation</b></p>
-      <p>Yesterday afternoon, Dr. Linda Harmon, the Deputy Chief Medical Officer and a key business stakeholder, attended a healthcare innovation conference. She returned with an urgent request: she wants the new patient scheduling system to include real-time integration with the pharmacy management system so that appointment confirmations automatically trigger medication refill reminders to patients.</p>
-      <p>Dr. Harmon sent an email this morning marked "High Priority" stating: </p>
-      <p><i>"This integration is critical for patient safety and will dramatically improve medication adherence. I've already mentioned this enhancement to the Regional Director, and she's very excited about it. We need to include this in the initial launch. I'm confident the technical team can make this work—it's just connecting two systems." </i></p>
-      <p>It's important to note that this was not in the original contract and has not been considered when original staffing, budget, and timeline were considered.</p>
-      
-      <p>Current Project Status:</p>
-      <ul>
-        <li>The project is 4 weeks from go-live </li>
-        <li>User acceptance testing (UAT) begins in 10 days </li>
-        <li>The team has just completed integration testing for the currently scoped features </li>
-        <li>The project is currently on schedule and within budget </li>
-      </ul>
-      <h4>Challenges to Navigate</h4>
-      <ul>
-        <li><b>Scope creep request</b>: Dr. Harmon's pharmacy integration request was never part of the original project scope, requirements, or approved budget. </li>
-        <li><b>Stakeholder pressure</b>: Dr. Harmon has already set expectations with the Regional Director, creating political pressure to accommodate the request. </li>
-        <li><b>Timeline risk</b>: Adding this functionality could delay go-live by 6–8 weeks and require additional funding.</li>
-        <li><b>A critical resource has been reassigned</b>: Your lead integration developer was just pulled to support an emergency system outage on another project and won't return for two weeks. </li>
-        <li><b>Team confusion</b>: Dr. Harmon has already reached out directly to two developers on your team asking them to "start looking into" the pharmacy integration, creating confusion about priorities. </li>
-        <li><b>Leadership expectations</b>: The Business Stakeholder expects a status update tomorrow and has no awareness of this new request.</li>        
-      </ul>
-
-      <h3>Part 1: Develop a Stakeholder Communication Plan </h3>
-      <h4>Step 1: Determine Communication Frequency</h4>
-      <p>Complete the table below:</p>
-      <table class="styled-table">
-          <thead>
-            <tr>
-              <th style="width: 18%;">Stakeholder Group</th>
-              <th>Communication Frequency </th>
-              <th>Method </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Business Stakeholder</td>
-              <td>e.g Weekly </td>
-              <td>e.g Meeting </td>
-            </tr>
-            <tr>
-              <td>Clinical Leadership </td>
-              <td><input type="text" name="q2" placeholder="Enter your answer here" style="width: 100%; height: 30px;"></td>
-              <td><input type="text" name="q2" placeholder="Enter your answer here" style="width: 100%; height: 30px;"></td>
-            </tr>
-            <tr>
-              <td>Technical Team</td>
-              <td><input type="text" name="q3" placeholder="Enter your answer here" style="width: 100%; height: 30px;"></td>
-              <td><input type="text" name="q3" placeholder="Enter your answer here" style="width: 100%; height: 30px;"></td>
-            </tr>
-            <tr>
-              <td>Project Team </td>
-              <td><input type="text" name="q4" placeholder="Enter your answer here" style="width: 100%; height: 30px;"></td>
-              <td><input type="text" name="q4" placeholder="Enter your answer here" style="width: 100%; height: 30px;"></td>
-            </tr>
-            <tr>
-              <td>End Users </td>
-              <td><input type="text" name="q5" placeholder="Enter your answer here" style="width: 100%; height: 30px;"></td>
-              <td><input type="text" name="q5" placeholder="Enter your answer here" style="width: 100%; height: 30px;"></td>
-            </tr>
-            </tbody>
-      </table>
-      <h4>Step 2: Determine Communication Content </h4>
-      <p>For each stakeholder group, consider:</p>
-      <ul>
-        <li>Information needed</li>
-        <li>Level of detail required</li>
-        <li>Preferred communication method</li>
-      </ul>
-
-      <h3>Part 2:  Responding to Scope Creep</h3>
-      <h4>Assess the Scope Change Request and Respond</h4>
-      <p>Before responding to Dr. Harmon, analyze the request:</p>
-      <ul>
-        <li>
-          Is this in the original scope?
-          <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>
-          What is the estimated impact on timeline, budget, and the team’s resources?
-          <input type="text" name="q4" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>
-          What are the risks of accommodating?
-          <input type="text" name="q5" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>
-          What are the risks of declining?
-          <input type="text" name="q6" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-      </ul>
-
-      <p>Write a professional email response to Dr. Harmon that:</p>
-      <ul>
-        <li>Acknowledges the value of her idea </li>
-        <li>Explains the change management process without being dismissive</li>
-        <li>Clearly communicates timeline and resource implications </li>
-        <li>Offers alternatives (e.g., Phase 2 implementation) </li>
-        <li>Proposes next steps </li>
-      </ul>
-
-      <p>Your Draft Email:</p>
-      <input type="text" name="draft_email" placeholder="Use this space to type out your draft email" style="width: 100%; height: 180px;">
-
-      
-      <h3>Part 3: Communicating Outside of Meetings</h3>
-      <h4>Scenario</h4>
-      <p>A stakeholder requests an update, but the next scheduled meeting is two weeks away.</p>
-
-      <h4>Step 1: Select an Appropriate Communication Method </h4>
-      <p>Choose one:</p>
-      <ul>
-        <li>Email</li>
-        <li>Teams Chat</li>
-        <li>Phone Call</li>
-        <li>Project Dashboard</li>
-        <li>Status Report</li>
-      </ul>
-      <h4>Step 2: Draft a Brief Update </h4>
-      <p>Include:</p>
-      <ul>
-        <li>Current project status</li>
-        <li>Recent accomplishments</li>
-        <li>Upcoming activities</li>
-        <li>Risks or concerns</li>
-      </ul>
-      <p><b>Question:</b> When is asynchronous communication more effective than scheduling a meeting?</p>
-
-      <h3>Part 4: Running an Effective Project Meeting</h3>
-      <h4>Scenario</h4>
-      <p>You are facilitating a weekly project status meeting.</p>
-      <h4>Step 1: Build a Meeting Agenda</h4>
-      <p>Create an agenda that includes:</p>
-      <ul>
-        <li>Project Status</li>
-        <li>Milestone Review</li>
-        <li>Risks and Issues</li>
-        <li>Action Items</li>
-        <li>Open Discussion</li>
-      </ul>
-      <h4>Step 2: Identify Questions You Need Answered </h4>
-      <p>List at least three questions you need from attendees to keep the project moving.</p>
-      <p>Example:</p>
-      <ul>
-        <li>Are all assigned tasks on schedule?</li>
-        <li>Have any new risks emerged?</li>
-        <li>Are additional resources needed?</li>
-      </ul>
-      
-
-      <h3>Part 5: Influence Without Authority </h3>
-      <h4>Scenario</h4>
-      <p>A Developer is assigned to complete a critical task but has shifted focus to another project. You do not directly supervise this individual. </p>
-      <h4>Step 1: Choose an Influence Strategy </h4>
-      <p>Select one: </p>
-      <ul>
-        <li>Building relationships</li>
-        <li>Explaining project impact</li>
-        <li>Negotiating priorities within the project</li>
-        <li>Escalating to leadership</li>
-        <li>Seeking stakeholder support</li>
-      </ul>
-      <h4>Step 2: Create a Communication Plan </h4>
-      <p>Document:</p>
-      <ul>
-        <li>Who you will speak with  </li>
-        <li>Key message  </li>
-        <li>Desired outcome  </li>
-      </ul>
-      <p><b>Question:</b> What are the advantages of influencing through collaboration rather than authority?</p>
-
-      <h3>Part 6: Clarifying Responsibilities and Timelines </h3>
-      <h4>Scenario</h4>
-      <p>Several project tasks have unclear ownership.</p>
-      <h4>Step 1: Review the Task List </h4>
-      <ul>
-        <li>Requirements Validation </li>
-        <li>System Configuration </li>
-        <li>User Acceptance Testing </li>
-        <li>Training Development </li>
-        <li>Go-Live Approval </li>
-      </ul>
-      <h4>Step 2: Assign Responsibility </h4>
-      <p>For each task:</p>
-      <ul>
-        <li>Identify the most appropriate owner.</li>
-        <li>Define the target completion date.</li>
-        <li>Document any dependencies.</li>
-      </ul>
-      <h4>Step 3: Establish a Common Understanding </h4>
-      <p>Prepare a summary statement that includes:</p>
-      <ul>
-        <li>Task ownership</li>
-        <li>Expected timelines</li>
-        <li>Success criteria</li>
-      </ul>
-
-      <!--Commenting out for now, remove later when confirmed
-      <h3>Reflection Questions</h3>
-      <ol>
-        <li>How does communication frequency vary among stakeholder groups?
-        <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>What makes a project meeting effective?
-        <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>How should project managers communicate bad news?
-        <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>Why is stakeholder alignment important to project success?
-        <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>What techniques can be used to influence others without authority?
-        <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>How does clarifying responsibilities reduce project risk?
-        <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-        <li>What information should always be included in a project status update?
-        <input type="text" name="q1" placeholder="Enter your answer here" style="width: 100%; height: 30px;">
-        </li>
-      </ol>
-      -->
-    </section>
-
-    <section class="lab-section" data-lab="Session 6: Project Management Closeout Lab">
-      <h2>Session 6: Project Management Closeout Lab</h2>
+    <section class="lab-section" data-lab="Lab 4: Project Management Closeout Activity">
+      <h2>Lab 4: Project Management Closeout Activity</h2>
       <h4>Scenario</h4>
       <p>You are the Technical Program Manager for a healthcare technology project that is nearing completion. The organization is preparing to transition the system to operational support teams. Throughout the project, documentation has been stored across multiple tools including Teams, OneNote, SharePoint, Excel, and email. Leadership has requested a final review of project documentation before approving project closure.</p>
 
@@ -867,7 +685,7 @@ body.dark .banner {
           <thead>
             <tr>
               <th style="width: 18%;">Tool</th>
-              <th>Purpose</th>
+              <th>Description</th>
               <th>What information is stored there?</th>
               <th>What challenges exist within each tool?</th>
             </tr>
@@ -963,7 +781,39 @@ body.dark .banner {
         <li>Approval process</li>
       </ul>
 
-      <h3>Part 4: Create a Maintenance and Operational Handoff Package </h3>
+      <h3>Part 4: Prepare Project Closeout Documentation </h3>
+      <h4>Scenario</h4>
+      <p>Leadership has approved project completion pending final documentation. </p>
+      <h4>Step 1: Create a Project Closeout Report Outline </h4>
+      <p>Include:</p>
+      <ol>
+        <li>Project Overview</li>
+        <li>Project Objectives</li>
+        <li>Deliverables Completed</li>
+        <li>Budget Summary</li>
+        <li>Schedule Performance</li>
+        <li>Risks and Resolutions</li>
+        <li>Lessons Learned</li>
+        <li>Stakeholder Sign-Off</li>
+      </ol>
+      <h4>Step 2: Document Lessons Learned </h4>
+      <p>Identify:</p>
+      <ul>
+        <li>One success</li>
+        <li>One challenge</li>
+        <li>One recommendation for future projects</li>
+      </ul>
+      <h4>Step 3: Obtain Project Sign-Off </h4>
+      <p>Determine which stakeholders should approve project closure. </p>
+      <p>Examples: </p>
+      <ul>
+        <li>Business Stakeholder</li>
+        <li>Project Manager</li>
+        <li>Business Owner</li>
+        <li>Operations Manager</li>
+      </ul>
+
+      <h3>Part 5: Create a Maintenance and Operational Handoff Package </h3>
       <h4>Scenario</h4>
       <p>The project is transitioning to an operational support team. </p>
       <h4>Step 1: Create a Handoff Checklist </h4>
@@ -1016,40 +866,7 @@ body.dark .banner {
         <li>Operational walkthrough  </li>
         <li>Support readiness assessment  </li>
       </ul>
-      
-      <h3>Part 5: Prepare Project Closeout Documentation </h3>
-      <h4>Scenario</h4>
-      <p>Leadership has approved project completion pending final documentation. </p>
-      <h4>Step 1: Create a Project Closeout Report Outline </h4>
-      <p>Include:</p>
-      <ol>
-        <li>Project Overview</li>
-        <li>Project Objectives</li>
-        <li>Deliverables Completed</li>
-        <li>Budget Summary</li>
-        <li>Schedule Performance</li>
-        <li>Risks and Resolutions</li>
-        <li>Lessons Learned</li>
-        <li>Stakeholder Sign-Off</li>
-      </ol>
-      <h4>Step 2: Document Lessons Learned </h4>
-      <p>Identify:</p>
-      <ul>
-        <li>One success</li>
-        <li>One challenge</li>
-        <li>One recommendation for future projects</li>
-      </ul>
-      <h4>Step 3: Obtain Project Sign-Off </h4>
-      <p>Determine which stakeholders should approve project closure. </p>
-      <p>Examples: </p>
-      <ul>
-        <li>Business Stakeholder</li>
-        <li>Project Manager</li>
-        <li>Business Owner</li>
-        <li>Operations Manager</li>
-      </ul>
 
-    
       <h3>Reflection Questions </h3>
       <ol>
         <li>Why is project documentation critical to project success?  
@@ -1065,43 +882,180 @@ body.dark .banner {
     </section>
       
   </main>
+  </div>
 
-  <footer class="footer">
-    <p>&copy; 2026 HTM252 Lab Materials</p>
+  <footer class="app-footer">
+    <p>&copy; 2026 HTM252 lab materials. This workbook is for training use.</p>
   </footer>
 
-    <script>
-    function filterLabs() {
-      const select = document.getElementById('labFilter');
-      const value = select.value;
-      const sections = document.querySelectorAll('.lab-section');
-      sections.forEach(section => {
-        section.classList.toggle('active', section.dataset.lab === value || value === '');
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+
+  <script>
+    const labs = [
+      { label: 'User guide', match: 'User Guide', meta: 'Start here' },
+      { label: 'Lab 1', match: 'Lab 1:', meta: 'Microsoft Excel' },
+      { label: 'Lab 2', match: 'Lab 2:', meta: 'OneNote foundations' },
+      { label: 'Lab 3', match: 'Lab 3:', meta: 'Microsoft Teams' },
+      { label: 'Lab 4', match: 'Lab 4:', meta: 'Project closeout' }
+    ];
+    const storageKey = 'htm252-pm-labs-v1';
+    const themeKey = 'htm252-pm-theme';
+    const nav = document.getElementById('lab-nav');
+    const sections = Array.from(document.querySelectorAll('.lab-section'));
+    const status = document.getElementById('status');
+
+    function setupGifPlayers() {
+      document.querySelectorAll('.lab-section img[src$=".gif"]').forEach(image => {
+        const player = document.createElement('div');
+        player.className = 'gif-player';
+        const frame = document.createElement('div');
+        frame.className = 'gif-frame';
+        image.parentNode.insertBefore(player, image);
+        frame.appendChild(image);
+        image.classList.add('gif-animation');
+
+        const poster = document.createElement('img');
+        poster.className = 'gif-poster';
+        poster.src = image.src.replace(/([^/]+)\.gif$/i, 'Gif-Stills/$1.png');
+        poster.alt = '';
+        poster.setAttribute('aria-hidden', 'true');
+        frame.appendChild(poster);
+        player.appendChild(frame);
+
+        const button = document.createElement('button');
+        const animationLabel = image.alt ? ` animation: ${image.alt}` : ' animation';
+        button.type = 'button';
+        button.className = 'gif-toggle';
+        button.textContent = 'Play';
+        button.setAttribute('aria-pressed', 'false');
+        button.setAttribute('aria-label', `Play${animationLabel}`);
+        button.addEventListener('click', () => {
+          const isPlaying = button.getAttribute('aria-pressed') !== 'true';
+          poster.hidden = isPlaying;
+          button.textContent = isPlaying ? 'Stop' : 'Play';
+          button.setAttribute('aria-pressed', String(isPlaying));
+          button.setAttribute('aria-label', `${isPlaying ? 'Stop' : 'Play'}${animationLabel}`);
+        });
+        player.appendChild(button);
       });
     }
 
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('change', () => {
-      document.body.classList.toggle('dark', themeToggle.checked);
-      document.body.classList.toggle('light', !themeToggle.checked);
-    });
-    function toggleAnswerKey(button, sectionId) {
-    const section = document.getElementById(sectionId);
-    if (!section) return;
-
-    if (section.classList.contains('active')) {
-      // Currently visible → hide it
-      section.classList.remove('active');
-      button.textContent = 'Answer Key';
-    } else {
-      // Currently hidden → show it
-      section.classList.add('active');
-      button.textContent = 'Hide Answer Key';
-      
-      // Optional: smoothly scroll to the table when revealed
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    function alignStandaloneImages() {
+      document.querySelectorAll('.lab-section img:not(.gif-animation):not(.gif-poster)').forEach(image => {
+        const player = document.createElement('div');
+        player.className = 'gif-player still-image-player';
+        const frame = document.createElement('div');
+        frame.className = 'gif-frame';
+        const spacer = document.createElement('span');
+        spacer.className = 'gif-control-spacer';
+        spacer.setAttribute('aria-hidden', 'true');
+        image.parentNode.insertBefore(player, image);
+        frame.appendChild(image);
+        player.append(frame, spacer);
+      });
     }
-  }
+
+    setupGifPlayers();
+    alignStandaloneImages();
+
+    function announce(message) {
+      status.textContent = message;
+      status.classList.add('show');
+      clearTimeout(announce.timer);
+      announce.timer = setTimeout(() => status.classList.remove('show'), 1800);
+    }
+
+    function findLab(match) {
+      return sections.find(section => section.dataset.lab.startsWith(match));
+    }
+
+    function showLab(match, updateUrl = true) {
+      const selected = findLab(match) || sections[0];
+      sections.forEach(section => section.classList.toggle('active', section === selected));
+      nav.querySelectorAll('button').forEach(button => button.setAttribute('aria-current', String(button.dataset.match === selected.dataset.lab)));
+      if (updateUrl) history.pushState({}, '', `?lab=${encodeURIComponent(selected.dataset.lab)}`);
+      document.getElementById('main').focus({ preventScroll: true });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    labs.forEach(lab => {
+      const item = document.createElement('li');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.match = findLab(lab.match).dataset.lab;
+      button.innerHTML = `${lab.label}<span class="meta">${lab.meta}</span>`;
+      button.addEventListener('click', () => showLab(button.dataset.match));
+      item.appendChild(button);
+      nav.appendChild(item);
+    });
+
+    const fields = Array.from(document.querySelectorAll('input[type="text"]'));
+    fields.forEach((field, index) => {
+      field.id = field.id || `answer-${index + 1}`;
+      field.dataset.persist = '';
+    });
+
+    function saveAnswers(quiet = false) {
+      const values = {};
+      fields.forEach(field => values[field.id] = field.value);
+      localStorage.setItem(storageKey, JSON.stringify(values));
+      updateProgress();
+      if (!quiet) announce('Answers saved on this device');
+    }
+
+    function loadAnswers() {
+      const values = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      fields.forEach(field => { if (typeof values[field.id] === 'string') field.value = values[field.id]; });
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answered = fields.filter(field => field.value.trim().length > 0).length;
+      const percent = fields.length ? Math.round((answered / fields.length) * 100) : 0;
+      document.getElementById('progress-bar').value = percent;
+      document.getElementById('progress-text').textContent = `${percent}% (${answered}/${fields.length})`;
+    }
+
+    function applyTheme(dark) {
+      document.body.classList.toggle('dark', dark);
+      document.body.classList.toggle('light', !dark);
+      const button = document.getElementById('theme-toggle');
+      button.setAttribute('aria-pressed', String(dark));
+      button.textContent = dark ? 'Light mode' : 'Dark mode';
+      localStorage.setItem(themeKey, dark ? 'dark' : 'light');
+    }
+
+    document.addEventListener('input', event => {
+      if (event.target.matches('[data-persist]')) saveAnswers(true);
+    });
+    document.getElementById('save-btn').addEventListener('click', () => saveAnswers());
+    document.getElementById('export-btn').addEventListener('click', () => {
+      saveAnswers(true);
+      const text = fields.map(field => `${field.value.trim() || '[no answer]'}\n`).join('\n');
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+      link.download = 'htm252-pm-lab-answers.txt';
+      link.click();
+      URL.revokeObjectURL(link.href);
+      announce('Answer file downloaded');
+    });
+    document.getElementById('print-btn').addEventListener('click', () => window.print());
+    document.getElementById('theme-toggle').addEventListener('click', () => applyTheme(!document.body.classList.contains('dark')));
+    document.getElementById('clear-btn').addEventListener('click', () => {
+      if (!confirm('Clear all saved answers on this device?')) return;
+      localStorage.removeItem(storageKey);
+      fields.forEach(field => field.value = '');
+      updateProgress();
+      announce('Saved answers cleared');
+    });
+    window.addEventListener('popstate', () => showLab(new URLSearchParams(location.search).get('lab'), false));
+
+    buildInitialState();
+    function buildInitialState() {
+      loadAnswers();
+      applyTheme(localStorage.getItem(themeKey) === 'dark');
+      showLab(new URLSearchParams(location.search).get('lab') || sections[0].dataset.lab, false);
+    }
   </script>
   
 </body>
