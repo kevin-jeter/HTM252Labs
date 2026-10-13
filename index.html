@@ -179,9 +179,9 @@ body.dark .banner {
     }
     body.dark {
       --primary: #7ab7ef;
-      --primary-dark: #9cc9f4;
+      --primary-dark: #001a33;
       --primary-soft: #16324a;
-      --accent: #6fdbb0;
+      --accent: #8ec4ff;
       --bg: #121417;
       --surface: #1c2026;
       --surface-2: #262b33;
@@ -197,6 +197,7 @@ body.dark .banner {
     body { margin: 0; font-family: "Source Sans 3", "Segoe UI", sans-serif; font-size: 1.0625rem; line-height: 1.6; background: var(--bg); color: var(--text); }
     :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
     .app-header { position: sticky; top: 0; z-index: 50; background: var(--primary-dark); color: #fff; box-shadow: 0 2px 10px rgba(0, 0, 0, .18); }
+    body.dark .app-header .brand h1 { color: #fff; }
     .header-inner { max-width: calc(var(--max) + 280px); margin: 0 auto; min-height: 64px; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .brand { display: flex; flex-direction: column; gap: 2px; }
     .brand .kicker { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; opacity: .85; font-weight: 700; }
@@ -211,6 +212,8 @@ body.dark .banner {
     .lab-nav button { width: 100%; text-align: left; background: transparent; border: 1px solid transparent; color: var(--text); border-radius: 8px; padding: 9px 10px; font: inherit; font-weight: 600; cursor: pointer; }
     .lab-nav button:hover { background: var(--surface-2); }
     .lab-nav button[aria-current="true"] { background: var(--primary-soft); border-color: var(--primary); color: var(--primary-dark); }
+    body.dark .lab-nav button[aria-current="true"],
+    body.dark .lab-nav button[aria-current="true"] .meta { color: var(--primary); }
     .lab-nav .meta { display: block; font-size: .78rem; font-weight: 400; color: var(--muted); }
     .progress-wrap { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
     .progress-label { display: flex; justify-content: space-between; font-size: .85rem; color: var(--muted); margin-bottom: 6px; }
@@ -240,7 +243,7 @@ body.dark .banner {
     .gif-toggle:hover { filter: brightness(.92); }
     .gif-control-spacer { flex: 0 0 3.35rem; }
     .gif-toggle { width: 3.35rem; padding-right: 0; padding-left: 0; text-align: center; }
-    body.dark .gif-toggle { background: var(--surface-2); color: var(--text); border-color: var(--border); }
+    body.dark .gif-toggle { background: var(--accent); color: #001a33; border-color: var(--accent); }
     .callout { border-left: 5px solid var(--primary); background: var(--primary-soft); padding: 14px 16px; border-radius: 8px; margin: 16px 0; }
     input[type="text"], select { width: 100%; font: inherit; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
     input[type="text"]:focus, select:focus { border-color: var(--focus); background: var(--surface); }
@@ -296,7 +299,16 @@ body.dark .banner {
       <h2>User Guide</h2>
       <p>Welcome to the HTM252: PM Toolkit Labs! This guide is designed to help you navigate through the various labs included in this course. </p>
       <h3>Getting Started</h3>
-      <h3>Tips for Success</h3>
+      <p>Use the Labs Panel on the left to move between the User Guide and Labs 1–4. Select a lab to open its instructions, then scroll through the page and enter your responses in the answer fields. The Answered fields indicator shows your progress. Use the Play and Stop buttons beside animated GIFs to control them: Play shows the animation, and Stop returns it to its starting frame. When you press Play again, the GIF restarts from the beginning.
+        If the gifs are too small, feel free to left click on them and open them in a new tab. This will allow you to see the gif at its full size.
+      </p>
+      <p>The buttons in the top banner let you manage your work and the page display:</p>
+      <ul>
+        <li><strong>Save answers:</strong> Save your responses in this browser on this device. Answers are also saved as you enter them.</li>
+        <li><strong>Download answers:</strong> Download a text file containing your responses.</li>
+        <li><strong>Print / PDF:</strong> Open the print dialog to print the labs or save them as a PDF.</li>
+        <li><strong>Dark mode:</strong> Switch to a darker color theme. The button changes to <strong>Light mode</strong>; select it to return to the light theme.</li>
+      </ul>
       <p>If you have questions, reach out to your instructor or refer to the course materials. Happy learning!</p>
     </section>
 
@@ -890,7 +902,7 @@ body.dark .banner {
 
   <div class="status" id="status" role="status" aria-live="polite"></div>
 
-  <script>
+<script>
     const labs = [
       { label: 'User guide', match: 'User Guide', meta: 'Start here' },
       { label: 'Lab 1', match: 'Lab 1:', meta: 'Microsoft Excel' },
@@ -931,6 +943,7 @@ body.dark .banner {
         button.setAttribute('aria-label', `Play${animationLabel}`);
         button.addEventListener('click', () => {
           const isPlaying = button.getAttribute('aria-pressed') !== 'true';
+          if (isPlaying) image.src = image.src;
           poster.hidden = isPlaying;
           button.textContent = isPlaying ? 'Stop' : 'Play';
           button.setAttribute('aria-pressed', String(isPlaying));
@@ -1060,3 +1073,4 @@ body.dark .banner {
   
 </body>
 </html>
+
